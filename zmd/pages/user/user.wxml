@@ -1,0 +1,11 @@
+
+<view class='top' style=" background: url({{bg}}) no-repeat center center;                          background-size:cover;">
+   <open-data class="logo" type="userAvatarUrl"></open-data>
+</view>
+<!-- 联系我们 -->
+<view class='call' bindtap='call'>联系我们
+  <image class='right' src='{{right}}'></image>
+</view>
+
+
+<view class="tip">装企云提供计算服务</view>

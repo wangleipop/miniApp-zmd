@@ -1,0 +1,41 @@
+<!-- 分类 -->
+<view class="top">
+    <block  wx:for="{{title}}">
+    <view bindtap='switchover' class="{{!tab[index]?' active':''}}"  data-index="{{index}}">{{item}}</view>
+    </block>
+</view>
+<view class='div' hidden="{{tab[0]}}">
+      <view class='style'>
+          <view class="{{style_id==0?'active':''}}" data-txt="风格" data-id="0" data-index='0' bindtap='classify' >全部</view>
+          <block wx:for="{{styles}}">
+            <view data-id="{{item.id}}"
+             data-index='0' class="{{style_id==item.id?'active':''}}" data-txt="{{item.name}}"                                bindtap='classify'>{{item.name}}</view>
+          </block>
+      </view>
+</view>
+<view class='div' hidden="{{tab[1]}}">
+    <view class='style'>
+         <view class="{{house_id==0?'active':''}}" data-id="0" data-txt="户型"  data-index='1' bindtap='classify'>全部</view>
+          <block wx:for="{{houses}}">
+            <view data-id="{{item.id}}" 
+            data-index='1' class="{{house_id==item.id?'active':''}}" 
+            data-txt="{{item.name}}" bindtap='classify'>{{item.name}}</view>
+          </block>
+      </view>
+</view>
+<!-- 列表 -->
+<scroll-view scroll-y="true" style="height: auto;" bindscrolltoupper="upper"  
+class="forum"
+bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view wx:for="{{arr}}" id="{{item.caseId}}" bindtap='goCase' class="list">
+      <li class="li">
+            <a>
+                <image style="background: url('{{item.coverImg}}') no-repeat center center;                     background-size: cover;"
+                 class="img"></image>
+                <div class="name">{{item.name}}</div>
+                <div class="style">{{item.styleName}} | {{item.area}}㎡</div>
+<!-- <div class="watch"><div>{{item.lookCount}}</div><image src="{{logo}}"></image></div>  -->
+            </a>
+        </li>
+    </view> 
+</scroll-view>
